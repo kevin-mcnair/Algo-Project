@@ -23,6 +23,7 @@ class Board:
 			else:
 				#User gets O
 				self.grid[self.colCounters[col-1]][col-1] = "O"
+			#increment the counter for that column
 			self.colCounters[col-1] = self.colCounters[col-1] + 1
 			return True
 		else:
@@ -72,7 +73,7 @@ class Player:
 		else:
 			#get input from user
 			userInput = input("Your turn! Which row would you like to drop your piece in (1-6)?: ")
-			while userInput != 1 and userInput != 2 and userInput != 3 and userInput != 4 and userInput != 5 and userInput != 6 and userInput != 7:
+			while userInput != 1 and userInput != 2 and userInput != 3 and userInput != 4 and userInput != 5 and userInput != 6:
 				userInput = input("Please enter a row on the board: ")
 			return userInput
 
