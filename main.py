@@ -68,7 +68,8 @@ class Player:
 			time.sleep(1.5)
 		
 			#Theoretically, if the Computer is taking the first turn, it could be random.
-			if(turnCount == 0)
+			if(self.turnCount == 0)
+				self.turnCount = self.turnCount + 1
 				return random.choice([1, 2, 3, 4, 5, 6])
 
 
@@ -95,7 +96,7 @@ class Player:
 			userInput = input("Your turn! Which row would you like to drop your piece in (1-6)?: ")
 			while userInput != 1 and userInput != 2 and userInput != 3 and userInput != 4 and userInput != 5 and userInput != 6:
 				userInput = input("Please enter a row on the board: ")
-			turnCount = turnCount + 1
+			self.turnCount = self.turnCount + 1
 			return userInput
 
 
