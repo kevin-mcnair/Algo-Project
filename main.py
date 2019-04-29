@@ -54,6 +54,8 @@ class Board:
 			success = self.addPiece(chosenCol, thePlayer)
 
 class Player:
+	
+	turnCount = 0 
 
 	isComputer = False
 
@@ -64,17 +66,36 @@ class Player:
 		if self.isComputer:
 			print("Computer's turn...")
 			time.sleep(1.5)
+		
+			#Theoretically, if the Computer is taking the first turn, it could be random.
+			if(turnCount == 0)
+				return random.choice([1, 2, 3, 4, 5, 6])
+
+
 			#**************************************************************
 			#IMPORTANT
 			#insert algorithm here bois instead of the random number choice
 			#have it return the number of the row that it chooses to play in
+			#
+			#Priorities (from our outline):
+			#-Place block for win (which means we need to be able to look at the blocks around it)
+			#-Place to block player win (in this order):
+			#	- Vertical
+			#	-Diagonal									
+			#	-Horizontal
+			#	- Below Diagonal
+			#	- Below Disconnected
+			#
+			#	Do we need to make the computer recognize these different situations?
+			#	- place own block to continue
 			#***************************************************************
-			return random.choice([1, 2, 3, 4, 5, 6])
+			
 		else:
 			#get input from user
 			userInput = input("Your turn! Which row would you like to drop your piece in (1-6)?: ")
 			while userInput != 1 and userInput != 2 and userInput != 3 and userInput != 4 and userInput != 5 and userInput != 6:
 				userInput = input("Please enter a row on the board: ")
+			turnCount = turnCount + 1
 			return userInput
 
 
