@@ -1,3 +1,4 @@
+from __future__ import print_function
 import random
 import time
 
@@ -6,15 +7,28 @@ class Board:
 	grid = [[]]
 	gameOver = False
 
+	colCounters = [0,0,0,0,0,0]
+
 	def __init__(self):
-		self.grid = [[(0,0) for x in range(6)] for y in range(7)]
+		self.grid = [[" " for x in range(6)] for y in range(7)]
 		self.gameOver = False
 
-	def addPiece(self, row):
-		print("Add Piece")
+	def addPiece(self, col, player):
+		if player.isComputer:
+			#put a 1 in the spot
+			self.grid[self.colCounters[col-1]][col-1] = "X"
+		else:
+			self.grid[self.colCounters[col-1]][col-1] = "O"
+		self.colCounters[col-1] = self.colCounters[col-1] + 1
 
 	def printBoard(self):
-		print("printBoard")
+		print("______________")
+		for row in range(len(self.grid), 0, -1):
+			for col in range(len(self.grid[row-1])):
+				print("|" + str(self.grid[row-1][col]), end = '')
+			print("|")
+		print("--------------")
+		print("|1|2|3|4|5|6| ")
 
 	def gameIsOver(self):
 		self.gameOver = True
@@ -23,8 +37,8 @@ class Board:
 		return self.gameOver
 
 	def takeTurn(self, thePlayer):
-		chosenRow = thePlayer.takeTurn()
-		self.addPiece(chosenRow)
+		chosenCol = thePlayer.takeTurn()
+		self.addPiece(chosenCol, thePlayer)
 
 class Player:
 
@@ -35,11 +49,14 @@ class Player:
 
 	def takeTurn(self):
 		if self.isComputer:
+			#**************************************************************
+			#IMPORTANT
 			#insert algorithm here bois instead of the random number
 			#have it return the number of the row that it chooses to play in
+			#***************************************************************
 			print("Computer's turn...")
 			time.sleep(2)
-			return random.choice([1, 2, 3, 4, 5, 6, 7])
+			return random.choice([1, 2, 3, 4, 5, 6])
 		else:
 			#get input from user
 			userInput = input("Your turn! Which row would you like to drop your piece in (1-6)?: ")
@@ -68,14 +85,16 @@ if __name__ == '__main__':
 	#if computer goes first, let the computer take its turn, otherwise don't do anything
 	if coin:
 		#computer takes turn first
+		print("")
 		print("Computer goes first...")
+		print("")
 		time.sleep(.3)
 		theBoard.takeTurn(computer)
 
 	else:
-		print()
+		print("")
 		print("You go first...")
-		print()
+		print("")
 
 	#start while loop with condition gameOver
 	while(theBoard.gameOver == False):
@@ -102,4 +121,4 @@ if __name__ == '__main__':
 			theBoard.gameIsOver()
 			break
 
-		theBoard.gameIsOver()
+		#as of right now, the game doesn't end
