@@ -6,7 +6,8 @@ class Board:
 
 	grid = [[]]
 	gameOver = False
-
+	#this is a list that keeps track of how many pieces are each column
+	#makes sure the pieces get inserted at the "top" of each stack
 	colCounters = [0,0,0,0,0,0]
 
 	def __init__(self):
@@ -14,12 +15,21 @@ class Board:
 		self.gameOver = False
 
 	def addPiece(self, col, player):
-		if player.isComputer:
-			#put a 1 in the spot
-			self.grid[self.colCounters[col-1]][col-1] = "X"
+		#make sure they don't go over the height of the board
+		if self.colCounters[col-1]<=6:
+			if player.isComputer:
+				#Computer gets X
+				self.grid[self.colCounters[col-1]][col-1] = "X"
+			else:
+				#User gets O
+				self.grid[self.colCounters[col-1]][col-1] = "O"
+			self.colCounters[col-1] = self.colCounters[col-1] + 1
+			return True
 		else:
-			self.grid[self.colCounters[col-1]][col-1] = "O"
-		self.colCounters[col-1] = self.colCounters[col-1] + 1
+			#only print out the error message for the user
+			if player.isComputer == False:
+				print("Oops! That column is full! Try again.")
+			return False
 
 	def printBoard(self):
 		print("______________")
@@ -37,8 +47,10 @@ class Board:
 		return self.gameOver
 
 	def takeTurn(self, thePlayer):
-		chosenCol = thePlayer.takeTurn()
-		self.addPiece(chosenCol, thePlayer)
+		success = False
+		while (success == False):
+			chosenCol = thePlayer.takeTurn()
+			success = self.addPiece(chosenCol, thePlayer)
 
 class Player:
 
@@ -80,7 +92,6 @@ if __name__ == '__main__':
 	print("Flipping coin to see who goes first...")
 	#generate either true or false, if the coin is true, the computer goes first
 	coin = random.choice([True, False])
-	print(coin)
 
 	#if computer goes first, let the computer take its turn, otherwise don't do anything
 	if coin:
@@ -90,16 +101,19 @@ if __name__ == '__main__':
 		print("")
 		time.sleep(.3)
 		theBoard.takeTurn(computer)
+		#print board
+		theBoard.printBoard()
 
 	else:
 		print("")
 		print("You go first...")
 		print("")
 
-	#start while loop with condition gameOver
-	while(theBoard.gameOver == False):
 		#print board
 		theBoard.printBoard()
+
+	#start while loop with condition gameOver
+	while(theBoard.gameOver == False):
 		#player takes turn
 		theBoard.takeTurn(player)
 		#print board
