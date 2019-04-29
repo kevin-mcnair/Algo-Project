@@ -49,7 +49,7 @@ class Board:
 
 	def takeTurn(self, thePlayer):
 		success = False
-		while (success == False):
+		while success == False:
 			chosenCol = thePlayer.takeTurn()
 			success = self.addPiece(chosenCol, thePlayer)
 
@@ -62,13 +62,13 @@ class Player:
 
 	def takeTurn(self):
 		if self.isComputer:
+			print("Computer's turn...")
+			time.sleep(1.5)
 			#**************************************************************
 			#IMPORTANT
-			#insert algorithm here bois instead of the random number
+			#insert algorithm here bois instead of the random number choice
 			#have it return the number of the row that it chooses to play in
 			#***************************************************************
-			print("Computer's turn...")
-			time.sleep(2)
 			return random.choice([1, 2, 3, 4, 5, 6])
 		else:
 			#get input from user
