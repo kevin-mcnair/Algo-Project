@@ -100,7 +100,7 @@ if __name__ == '__main__':
 		print("")
 		print("Computer goes first...")
 		print("")
-		time.sleep(.3)
+		time.sleep(.5)
 		theBoard.takeTurn(computer)
 		#print board
 		theBoard.printBoard()
@@ -109,6 +109,7 @@ if __name__ == '__main__':
 		print("")
 		print("You go first...")
 		print("")
+		time.sleep(.5)
 
 		#print board
 		theBoard.printBoard()
@@ -136,4 +137,10 @@ if __name__ == '__main__':
 			theBoard.gameIsOver()
 			break
 
+		#**************************************************************
+		#IMPORTANT
 		#as of right now, the game doesn't end
+ 		#Board's checkForWin method will have to be altered to actually check for a win
+		#this will need to be done by checking for any 4 adjacent pieces on the board
+		#***************************************************************
+		
