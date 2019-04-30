@@ -68,7 +68,7 @@ class Player:
 			time.sleep(1.5)
 		
 			#Theoretically, if the Computer is taking the first turn, it could be random.
-			if(self.turnCount == 0)
+			if(self.turnCount == 0):
 				self.turnCount = self.turnCount + 1
 				return random.choice([1, 2, 3, 4, 5, 6])
 
