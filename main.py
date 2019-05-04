@@ -62,6 +62,46 @@ class Player:
 	def __init__(self, playerType):
 		self.isComputer = playerType
 
+
+
+	def checkPiece(self,piece, direction):
+	#checkPiece will see if there is a friendly piece in the direction selected.
+	#
+	# Key for direction:
+	#
+	#	1	2	3
+	#	4  (P)	5
+	#	6	7	8
+	#
+	# Where (P) is the piece 
+		
+		if(direction==1): 
+		#upper left diagonal
+			
+		elif(direction==2):
+		#upper middle
+
+		elif(direction==3):
+		#upper right diagonal
+
+		elif(direction==4):
+		#left middle
+
+		elif(direction==5):
+		#right middle
+
+		elif(direction==6):
+		#lower left diagonal
+
+		elif(direction==7):
+		#lower middle
+
+		elif(direction==8):
+		#lower right
+
+		else:
+			return False
+
 	def takeTurn(self):
 		if self.isComputer:
 			print("Computer's turn...")
@@ -91,6 +131,9 @@ class Player:
 			#	- place own block to continue
 			#***************************************************************
 			
+
+		#USER player code below
+		#--------------------------------------------------------------
 		else:
 			#get input from user
 			userInput = input("Your turn! Which row would you like to drop your piece in (1-6)?: ")
