@@ -13,7 +13,11 @@ class Board:
 
 	def addPiece(self, col, player):
 		#make sure they don't go over the height of the board
+		
 		column = col-1
+		#Col is the user given value, column is the actual column to be used
+
+		# BOARD CREATION BELOW
 
 		if self.colCounters[column]<6:
 			if player.isComputer:
