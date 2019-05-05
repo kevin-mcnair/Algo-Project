@@ -4,6 +4,7 @@ import board
 import player
 import time
 
+
 if __name__ == '__main__':
 
 	#instantiate board

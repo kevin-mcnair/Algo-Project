@@ -10,8 +10,6 @@ class Player:
 	def __init__(self, playerType):
 		self.isComputer = playerType
 
-
-
 	#def checkPiece(self,piece, direction):
 	#checkPiece will see if there is a friendly piece in the direction selected.
 	#

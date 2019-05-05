@@ -1,3 +1,5 @@
+import piece
+
 class Board:
 
 	grid = [[]]
@@ -12,6 +14,7 @@ class Board:
 		self.colCounters = [0,0,0,0,0,0,0]
 
 	def addPiece(self, col, player):
+		thePiece = piece.Piece(player.isComputer)
 		#make sure they don't go over the height of the board
 		
 		column = col-1
@@ -20,12 +23,12 @@ class Board:
 		# BOARD CREATION BELOW
 
 		if self.colCounters[column]<6:
-			if player.isComputer:
+			if thePiece.isComputer:
 				#Computer gets X
-				self.grid[self.colCounters[column]][column] = "X"
+				self.grid[self.colCounters[column]][column] = thePiece
 			else:
 				#User gets O
-				self.grid[self.colCounters[column]][column] = "O"
+				self.grid[self.colCounters[column]][column] = thePiece
 			#increment the counter for that column
 			self.colCounters[column] = self.colCounters[column] + 1
 			return True
