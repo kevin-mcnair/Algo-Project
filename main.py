@@ -8,11 +8,12 @@ class Board:
 	gameOver = False
 	#this is a list that keeps track of how many pieces are each column
 	#makes sure the pieces get inserted at the "top" of each stack
-	colCounters = [0,0,0,0,0,0]
+	colCounters = []
 
 	def __init__(self):
 		self.grid = [[" " for x in range(7)] for y in range(6)]
 		self.gameOver = False
+		self.colCounters = [0,0,0,0,0,0,0]
 
 	def addPiece(self, col, player):
 		#make sure they don't go over the height of the board
