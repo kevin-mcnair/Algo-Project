@@ -11,7 +11,7 @@ class Board:
 	colCounters = [0,0,0,0,0,0]
 
 	def __init__(self):
-		self.grid = [[" " for x in range(6)] for y in range(7)]
+		self.grid = [[" " for x in range(7)] for y in range(6)]
 		self.gameOver = False
 
 	def addPiece(self, col, player):
@@ -39,11 +39,12 @@ class Board:
 				print("|" + str(self.grid[row-1][col]), end = '')
 			print("|")
 		print("--------------")
-		print("|1|2|3|4|5|6| ")
+		print("|1|2|3|4|5|6|7| ")
 
 	def gameIsOver(self):
 		self.gameOver = True
 
+	#returns boolean, false if no 4 pieces found 
 	def checkForWin(self):
 		return self.gameOver
 
@@ -75,32 +76,36 @@ class Player:
 	#
 	# Where (P) is the piece 
 		
-		if(direction==1): 
-			#upper left diagonal
+	#	if(direction==1): 
+		#upper left diagonol
+
+		
+	# 	if(direction==1): 
+	# 	#upper left diagonal
 			
-		elif(direction==2):
-		#upper middle
+	# 	elif(direction==2):
+	# 	#upper middle
 
-		elif(direction==3):
-		#upper right diagonal
+	# 	elif(direction==3):
+	# 	#upper right diagonal
 
-		elif(direction==4):
-		#left middle
+	# 	elif(direction==4):
+	# 	#left middle
 
-		elif(direction==5):
-		#right middle
+	# 	elif(direction==5):
+	# 	#right middle
 
-		elif(direction==6):
-		#lower left diagonal
+	# 	elif(direction==6):
+	# 	#lower left diagonal
 
-		elif(direction==7):
-		#lower middle
+	# 	elif(direction==7):
+	# 	#lower middle
 
-		elif(direction==8):
-		#lower right
+	# 	elif(direction==8):
+	# 	#lower right
 
-		else:
-			return False
+	# 	else:
+	# 		return False
 
 	def takeTurn(self):
 		if self.isComputer:
@@ -110,7 +115,11 @@ class Player:
 			#Theoretically, if the Computer is taking the first turn, it could be random.
 			if(self.turnCount == 0):
 				self.turnCount = self.turnCount + 1
-				return random.choice([1, 2, 3, 4, 5, 6])
+
+				#return random.choice([1, 2, 3, 4, 5, 6, 7])
+				#could be a 'heuristic' to always have the computer drop in the center column (4) if they have the first move
+				#According to internet, the only way to win a perfect game is to play that column first... soo optimal?
+				return 4
 
 
 			#**************************************************************
@@ -136,11 +145,14 @@ class Player:
 		#--------------------------------------------------------------
 		else:
 			#get input from user
-			userInput = input("Your turn! Which row would you like to drop your piece in (1-6)?: ")
-			while userInput != 1 and userInput != 2 and userInput != 3 and userInput != 4 and userInput != 5 and userInput != 6:
-				userInput = input("Please enter a row on the board: ")
-			self.turnCount = self.turnCount + 1
-			return userInput
+				while True:
+					n = int(input("enter a number between 1 and 7: "))
+					if 1 <= n <= 7:
+						break
+					print('try again')
+			
+				self.turnCount = self.turnCount + 1
+				return n
 
 
 if __name__ == '__main__':
