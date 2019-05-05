@@ -15,7 +15,7 @@ class Board:
 		#make sure they don't go over the height of the board
 		column = col-1
 
-		if self.colCounters[column]<=6:
+		if self.colCounters[column]<6:
 			if player.isComputer:
 				#Computer gets X
 				self.grid[self.colCounters[column]][column] = "X"
