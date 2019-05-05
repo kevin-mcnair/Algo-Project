@@ -70,13 +70,13 @@ class Player:
 	# Key for direction:
 	#
 	#	1	2	3
-	#	4  (P)	5
+	#	4	(P)	5
 	#	6	7	8
 	#
 	# Where (P) is the piece 
 		
 		if(direction==1): 
-		#upper left diagonal
+			#upper left diagonal
 			
 		elif(direction==2):
 		#upper middle
