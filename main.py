@@ -88,7 +88,7 @@ class Player:
 			#	Do we need to make the computer recognize these different situations?
 			#	- place own block to continue
 			#***************************************************************
-			
+			#test
 
 		#USER player code below
 		#--------------------------------------------------------------
