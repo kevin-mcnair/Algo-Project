@@ -50,9 +50,27 @@ class Board:
 	def gameIsOver(self):
 		self.gameOver = True
 
+		if(self.checkForTie() == True):
+			print("Draw!")
+			print("Game Over.")
+		else:
+			print("Game Over.")
+
 	#returns boolean, false if no 4 pieces found 
 	def checkForWin(self):
 		return self.gameOver
+
+	def checkForTie(self):
+		fullColumns = 0
+
+		for x in range(0,6):
+			if(self.colCounters[x] == 6):
+				fullColumns = fullColumns + 1
+
+		if(fullColumns==6):
+			return True
+		else:
+			return False
 
 	def takeTurn(self, thePlayer):
 		success = False

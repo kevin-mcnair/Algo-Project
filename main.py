@@ -44,24 +44,36 @@ if __name__ == '__main__':
 
 	#start while loop with condition gameOver
 	while(theBoard.gameOver == False):
+		#check for tie
+		tieCheck = theBoard.checkForTie()
 		#player takes turn
 		theBoard.takeTurn(player)
 		#print board
 		theBoard.printBoard()
+
+		
 		#check for win
 		gameHasBeenWon = theBoard.checkForWin()
 		#if win, break
-		if gameHasBeenWon:
+
+		if gameHasBeenWon or tieCheck:
 			theBoard.gameIsOver()
 			break
+
+		#check for tie
+		tieCheck = theBoard.checkForTie()
+		
 		#otherwise, computer takes turn
 		theBoard.takeTurn(computer)
 		#print board again
 		theBoard.printBoard()
+		
+		
 		#check for win
 		gameHasBeenWon = theBoard.checkForWin()
 		#if win, break
-		if gameHasBeenWon:
+
+		if gameHasBeenWon or tieCheck:
 			theBoard.gameIsOver()
 			break
 
