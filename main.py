@@ -17,15 +17,17 @@ class Board:
 
 	def addPiece(self, col, player):
 		#make sure they don't go over the height of the board
-		if self.colCounters[col-1]<=6:
+		column = col-1
+
+		if self.colCounters[column]<=6:
 			if player.isComputer:
 				#Computer gets X
-				self.grid[self.colCounters[col-1]][col-1] = "X"
+				self.grid[self.colCounters[column]][column] = "X"
 			else:
 				#User gets O
-				self.grid[self.colCounters[col-1]][col-1] = "O"
+				self.grid[self.colCounters[column]][column] = "O"
 			#increment the counter for that column
-			self.colCounters[col-1] = self.colCounters[col-1] + 1
+			self.colCounters[column] = self.colCounters[column] + 1
 			return True
 		else:
 			#only print out the error message for the user
@@ -66,7 +68,7 @@ class Player:
 
 
 
-	def checkPiece(self,piece, direction):
+	#def checkPiece(self,piece, direction):
 	#checkPiece will see if there is a friendly piece in the direction selected.
 	#
 	# Key for direction:
