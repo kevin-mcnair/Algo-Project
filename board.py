@@ -151,13 +151,13 @@ class Board:
 					self.doesSquareContainWinner(row-1, col)
 		return False
 	
-	def checkVertical(self,rowNum,colNum):
-		token = self.grid[rowNum][colNum]
+	def checkVertical(self,x,y):
+		token = self.grid[x][y]
 		count = 0
 
-		for x in range(0,5):
+		for i in range(0,5):
 
-			if(self.grid[x][colNum] == token and self.grid[x][colNum] != " "):
+			if(self.grid[i][y].character == token.character and self.grid[x][y] != " "):
 				count = count + 1
 			else:
 				count = 0
