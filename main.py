@@ -56,10 +56,7 @@ if __name__ == '__main__':
 		#if win, break
 
 		if gameHasBeenWon or tieCheck:
-			if(player.isComputer):
-				theBoard.gameIsOver(0)
-			else:
-				theBoard.gameIsOver(1)
+			theBoard.gameIsOver(1)
 			break
 
 		#check for tie
@@ -75,10 +72,7 @@ if __name__ == '__main__':
 		#if win, break
 
 		if gameHasBeenWon or tieCheck:
-			if(player.isComputer):
-				theBoard.gameIsOver(0)
-			else:
-				theBoard.gameIsOver(1)
+			theBoard.gameIsOver(0)
 			break
 
 		#**************************************************************
