@@ -84,9 +84,22 @@ class Board:
 					return False
 		return True
 
+	def checkHorizontal(self):
+		return False
+	
+	def checkVertical(self):
+		return False
+	
+	def checkDiagonal(self):
+		return False
+
 	def doesSquareContainWinner(self, x, y):
-			print("Searching... (" + str(x) + ',' + str(y) + ")")
-			return False
+		print("Searching... (" + str(x) + ',' + str(y) + ")")
+		if(self.checkHorizontal() or self.checkVertical() or self.checkDiagonal()):
+			return True
+		else:
+			return False 
+
 
 	#returns boolean, TRUE if 4 of same piece are found 
 	def checkForWin(self):
