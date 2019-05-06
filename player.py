@@ -1,9 +1,10 @@
 import time
 import random
 import board
+import Connect4AI
 
 class Player:
-	board = board.Board()
+	computerLogic = Connect4AI.AI()
 	player = ""
 	turnCount = 0 
 
@@ -58,7 +59,6 @@ class Player:
 		if self.isComputer:
 			print("Computer's turn...")
 			time.sleep(0.5)
-			print(len(self.board.grid))
 			#Theoretically, if the Computer is taking the first turn, it could be random.
 			
 			if(self.turnCount == 0 and board.isBoardEmpty()):
@@ -71,7 +71,8 @@ class Player:
 			for i in board.grid:
 				for j in i:
 					print(j)
-			return random.choice([1,2,3,4,5,6,7])
+
+			return self.computerLogic.chosenColumn()
 
 			
 
