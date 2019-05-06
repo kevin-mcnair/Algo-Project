@@ -25,8 +25,6 @@ class Player:
 				#could be a 'heuristic' to always have the computer drop in the center column (4) if they have the first move
 				#According to internet, the only way to win a perfect game is to play that column first... soo optimal?
 				return 4
-			
-
 			return self.computerLogic.chosenColumn(board)+1
 
 
