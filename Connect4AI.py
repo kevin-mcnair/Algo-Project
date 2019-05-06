@@ -5,36 +5,39 @@ class AI:
     def chosenColumn(self, theBoard):
 
         #first checks to see if it can win
-        try:
-            for y in range(0, 5):
-                for x in range(0, 6):
-                    if theBoard.grid[x][y] == ' ':
-                        continue
-                    if theBoard.grid[x][y].character == "X":
-                        if str(theBoard.grid[x][y+1]) == "X":
-                            if str(theBoard.grid[x][y+2]) == "X":
+        for y in range(0, 5):
+            for x in range(0, 6):
+                if theBoard.grid[x][y] == ' ':
+                    continue
+                if theBoard.grid[x][y].character == "X":
+                    if (y+1) < 6 and str(theBoard.grid[x][y+1]) == "X":
+                        if (y+2) < 6 and str(theBoard.grid[x][y+2]) == "X":
+                            if (y+3) < 6:
                                 return y+3
-                        elif str(theBoard.grid[x][y-1]) == "X":
-                            if str(theBoard.grid[x][y-2]) == "X":
+                    elif (y-1) >= 0 and str(theBoard.grid[x][y-1]) == "X":
+                        if (y-2) >= 0 and str(theBoard.grid[x][y-2]) == "X":
+                            if (y-3) >= 0:
                                 return y-3
-                        elif str(theBoard.grid[x+1][y]) == "X":
-                            if str(theBoard.grid[x+2][y]) == "X":
+                    elif (x+1) < 7 and str(theBoard.grid[x+1][y]) == "X":
+                        if (x+2) < 7 and str(theBoard.grid[x+2][y]) == "X":
+                            if (x+3) < 7:
                                 return y
-                
-        except IndexError:
-            print("Out of bounds")
-            #this is a simple blocking algorithm
-            totalOs = 0
-            for col in range(0, 5):
-                totalOs = 0
-                for row in range(0, 6):
-                    if theBoard.grid[row][col] == ' ':
-                        continue
-                    if theBoard.grid[row][col].character == "O":
-                        totalOs = totalOs + 1
                     else:
-                        totalOs = 0
-                if totalOs >= 3:
-                    return col
-
-            return random.choice([0,1,2,3,4,5,6])
+                        continue
+            
+        #this is a simple blocking algorithm
+        totalOs = 0
+        for col in range(0, 5):
+            totalOs = 0
+            for row in range(0, 6):
+                if theBoard.grid[row][col] == ' ':
+                    continue
+                if theBoard.grid[row][col].character == "O":
+                    totalOs = totalOs + 1
+                else:
+                    totalOs = 0
+            if totalOs >= 3:
+                return col
+        
+        print("It's getting here")
+        return random.choice([0,1,2,3,4,5,6])
