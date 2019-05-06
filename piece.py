@@ -6,7 +6,7 @@ class Piece:
     def __init__(self, isComputer):
         if(isComputer):
             self.isComputer = True
-            self.character = 'O'
+            self.character = 'X'
 
     def __str__(self):
         return self.character
