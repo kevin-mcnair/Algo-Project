@@ -84,18 +84,33 @@ class Board:
 					return False
 		return True
 
-	def checkHorizontal(self, x, y):
-		return False
+	def checkHorizontal(self, x, y, char):
+		longestHor = 0
+		print("Searching Horizontal... (" + str(x) + ',' + str(y) + ")")
+		if self.grid[x][y].character == char:
+			longestHor = longestHor + 1
+			if str(self.grid[x][y+1]) == char:
+				longestHor = longestHor + 1
+				if str(self.grid[x][y+2]) == char:
+					longestHor = longestHor + 1
+					if str(self.grid[x][y+3]) == char:
+						longestHor = longestHor + 1
+						return True
+		else:
+			print(longestHor)
+			return False
 	
 	def checkVertical(self, x, y):
+		print("Searching Vertical... (" + str(x) + ',' + str(y) + ")")
 		return False
 	
 	def checkDiagonal(self, x, y):
+		print("Searching Diagonal... (" + str(x) + ',' + str(y) + ")")
 		return False
 
-	def doesSquareContainWinner(self, x, y):
-		print("Searching... (" + str(x) + ',' + str(y) + ")")
-		if(self.checkHorizontal(x, y) or self.checkVertical(x, y) or self.checkDiagonal(x, y)):
+	def doesSquareContainWinner(self, x, y, char):
+		print("Searching... (" + str(x) + ',' + str(y) + ")" + char)
+		if(self.checkHorizontal(x, y, char) or self.checkVertical(x, y) or self.checkDiagonal(x, y)):
 			return True
 		else:
 			return False 
@@ -108,7 +123,7 @@ class Board:
 				if(str(self.grid[row][col]) == ' '):
 					continue
 				else:
-					if(self.doesSquareContainWinner(row, col)):
+					if(self.doesSquareContainWinner(row, col, self.grid[row][col].character)):
 						return True
 					continue
 		return False
