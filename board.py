@@ -52,62 +52,16 @@ class Board:
 		print("--------------")
 		print("|1|2|3|4|5|6|7| ")
 
-	def gameIsOver(self):
+	def gameIsOver(self, player):
 		self.gameOver = True
 
 		if(self.checkForTie() == True):
-			print("Draw!")
-			print("Game Over.")
+			print("Game Over. It's a Draw!")
 		else:
-			print("Game Over.")
-
-	#returns boolean, TRUE if 4 of same piece are found 
-	def checkForWin(self):
-
-		return self.gameOver
-	#returns boolean, false if no 4 pieces found 
-	# def checkForWin(self):
-	# 	rows = len(self.grid)
-	# 	columns = len(self.grid[0])
-
-	# 	for i in range(len(self.grid)):
-	# 		for j in range(len(self.grid[i])):
-	# 			for dr, dc in self.directions:
-	# 				win = True
-	# 				for length in range(1, 4):
-	# 					r = i + dr*length
-	# 					c = j + dc*length
-
-	# 				if win:
-	# 					return True
-	# 	return False
-				
-
-	# def checkPiece(self, row, column, length):
-	# 	rows = len(self.grid)
-	# 	columns = len(self.grid[0])
-
-	# 	for dr, dc in self.directions:
-	# 		foundWinner = True
-
-	# 		for i in range(1, length):
-	# 			r = row + dr*i
-	# 			c = column + dc*i
-
-	# 			if r not in range(rows) or c not in range(columns):
-	# 				foundWinner = False
-	# 				break
-
-	# 			if self.grid[r][c] != self.grid[row][column]:
-	# 				foundWinner = False
-	# 				break
-
-	# 		if foundWinner:
-	# 			return True
-
-	# 	return False
-	# @KEVIN THIS IS THE STUFF I WaS WORKING ON	
-
+			if(player == 0):
+				print("Game Over. Computer Wins!")
+			else:
+				print("Game Over. Player Wins!")
 
 	def checkForTie(self):
 		fullColumns = 0
@@ -137,29 +91,47 @@ class Board:
 					return False
 		return True
 
-
 	def checkHorizontal(self, x, y, char):
 		longestHor = 0
-		print("Searching Horizontal... (" + str(x) + ',' + str(y) + ")")
-		if self.grid[x][y].character == char:
-			longestHor = longestHor + 1
-			if str(self.grid[x][y+1]) == char:
+		#print("Searching Horizontal... (" + str(x) + ',' + str(y) + ")")
+		try:
+			if self.grid[x][y].character == char:
 				longestHor = longestHor + 1
-				if str(self.grid[x][y+2]) == char:
+				if str(self.grid[x][y+1]) == char:
 					longestHor = longestHor + 1
-					if str(self.grid[x][y+3]) == char:
+					if str(self.grid[x][y+2]) == char:
 						longestHor = longestHor + 1
-						return True
-		else:
-			print(longestHor)
+						if str(self.grid[x][y+3]) == char:
+							longestHor = longestHor + 1
+							return True
+			else:
+				print(longestHor)
+				return False
+		except IndexError:
 			return False
 	
 	def checkDiagonal(self, x, y):
-		print("Searching Diagonal... (" + str(x) + ',' + str(y) + ")")
+		#print("Searching Diagonal... (" + str(x) + ',' + str(y) + ")")
+		return False
+
+	def checkVertical(self,x,y):
+		token = self.grid[x][y]
+		count = 0
+		#print("Searching Vertical... (" + str(x) + ',' + str(y) + ")")
+
+		for i in range(0,5):
+			if(str(self.grid[i][y]) == str(token)):
+				count = count + 1
+			else:
+				count = 0
+
+			if(count >= 4):
+				return True
+
 		return False
 
 	def doesSquareContainWinner(self, x, y, char):
-		print("Searching... (" + str(x) + ',' + str(y) + ")" + char)
+		#print("Searching... (" + str(x) + ',' + str(y) + ")" + char)
 		if(self.checkHorizontal(x, y, char) or self.checkVertical(x, y) or self.checkDiagonal(x, y)):
 			return True
 		else:
@@ -175,6 +147,7 @@ class Board:
 					if(self.doesSquareContainWinner(row, col, self.grid[row][col].character)):
 						return True
 					continue
+<<<<<<< HEAD
 		return False
 	
 	def checkVertical(self,x,y):
@@ -197,4 +170,6 @@ class Board:
 			if(count >= 4):
 				return True
 
+=======
+>>>>>>> e58098ab90b57f132e2b2302c170375078806717
 		return False
