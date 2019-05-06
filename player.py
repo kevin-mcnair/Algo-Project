@@ -57,7 +57,7 @@ class Player:
 	def takeTurn(self):
 		if self.isComputer:
 			print("Computer's turn...")
-			time.sleep(1.5)
+			#time.sleep(1.5)
 		
 			#Theoretically, if the Computer is taking the first turn, it could be random.
 			if(self.turnCount == 0 and len(self.board.grid) == 0 ):

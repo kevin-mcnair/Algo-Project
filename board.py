@@ -16,7 +16,11 @@ class Board:
 	def addPiece(self, col, player):
 		thePiece = piece.Piece(player.isComputer)
 		#make sure they don't go over the height of the board
+		
 		column = col-1
+		#Col is the user given value, column is the actual column to be used
+
+		# BOARD CREATION BELOW
 
 		if self.colCounters[column]<6:
 			if thePiece.isComputer:
@@ -46,10 +50,28 @@ class Board:
 	def gameIsOver(self):
 		self.gameOver = True
 
-	#returns boolean, false if no 4 pieces found, true if theres a win 
+		if(self.checkForTie() == True):
+			print("Draw!")
+			print("Game Over.")
+		else:
+			print("Game Over.")
+
+	#returns boolean, false if no 4 pieces found 
 	def checkForWin(self):
 
 		return self.gameOver
+
+	def checkForTie(self):
+		fullColumns = 0
+
+		for x in range(0,6):
+			if(self.colCounters[x] == 6):
+				fullColumns = fullColumns + 1
+
+		if(fullColumns==6):
+			return True
+		else:
+			return False
 
 	def takeTurn(self, thePlayer):
 		success = False
