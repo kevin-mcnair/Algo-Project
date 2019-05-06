@@ -193,7 +193,6 @@ class Board:
 			else:
 				
 				count = 0
-				break
 
 			if(count >= 4):
 				return True
