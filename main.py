@@ -51,13 +51,15 @@ if __name__ == '__main__':
 		#print board
 		theBoard.printBoard()
 
-		
 		#check for win
 		gameHasBeenWon = theBoard.checkForWin()
 		#if win, break
 
 		if gameHasBeenWon or tieCheck:
-			theBoard.gameIsOver()
+			if(player.isComputer):
+				theBoard.gameIsOver(0)
+			else:
+				theBoard.gameIsOver(1)
 			break
 
 		#check for tie
@@ -68,14 +70,15 @@ if __name__ == '__main__':
 		#print board again
 		theBoard.printBoard()
 		
-		print(theBoard.checkForWin())
-
 		#check for win
 		gameHasBeenWon = theBoard.checkForWin()
 		#if win, break
 
 		if gameHasBeenWon or tieCheck:
-			theBoard.gameIsOver()
+			if(player.isComputer):
+				theBoard.gameIsOver(0)
+			else:
+				theBoard.gameIsOver(1)
 			break
 
 		#**************************************************************
