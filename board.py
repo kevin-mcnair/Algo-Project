@@ -112,6 +112,8 @@ class Board:
 	
 	def checkDiagonal(self, x, y):
 		#print("Searching Diagonal... (" + str(x) + ',' + str(y) + ")")
+		
+
 		return False
 
 	def checkVertical(self,x,y):
@@ -150,25 +152,3 @@ class Board:
 
 		return False
 	
-	def checkVertical(self,x,y):
-		token = self.grid[x][y]
-		count = 0
-		print("Searching Vertical... (" + str(x) + ',' + str(y) + ")")
-
-		for i in range(0,5):
-			#print("Comparison char: " + str(self.grid[x][y]) + " Comparing At: " + "(" +str(i) + ',' + str(y) + ")") 
-			#print()
-			#print("Count: " + str(count))
-
-			if(str(self.grid[i][y]) == str(token)):
-				#print("Char:" + str(self.grid[i][y]))
-				count = count + 1
-			else:
-				
-				count = 0
-
-			if(count >= 4):
-				return True
-
-
-		return False
