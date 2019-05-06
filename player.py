@@ -68,9 +68,9 @@ class Player:
 				#According to internet, the only way to win a perfect game is to play that column first... soo optimal?
 				return 4
 
-			for i in board.grid:
-				for j in i:
-					print(j)
+			# for i in board.grid:
+			# 	for j in i:
+			# 		print(j)
 
 			return self.computerLogic.chosenColumn()
 
