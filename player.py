@@ -61,19 +61,7 @@ class Player:
 			print(len(self.board.grid))
 			#Theoretically, if the Computer is taking the first turn, it could be random.
 			
-			def isBoardEmpty():
-	
-				if self.turnCount == 0:
-					for row in range(len(self.board.grid), 0, -1):
-						for col in range(len(self.board.grid[row-1])):
-							if(str(board.grid[row-1][col]) == ' '):
-								continue
-							else:
-								return False
-
-				return True
-	
-			if(self.turnCount == 0 and isBoardEmpty):
+			if(self.turnCount == 0 and board.isBoardEmpty()):
 				self.turnCount = self.turnCount + 1
 
 				#could be a 'heuristic' to always have the computer drop in the center column (4) if they have the first move

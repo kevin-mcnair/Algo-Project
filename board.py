@@ -126,3 +126,12 @@ class Board:
 			chosenCol = thePlayer.takeTurn(self)
 			print(chosenCol)
 			success = self.addPiece(chosenCol, thePlayer)
+
+	def isBoardEmpty(self):
+		for row in range(len(self.grid), 0, -1):
+			for col in range(len(self.grid[row-1])):
+				if(str(self.grid[row-1][col]) == ' '):
+					continue
+				else:
+					return False
+		return True
