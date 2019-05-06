@@ -48,7 +48,7 @@ if __name__ == '__main__':
 		theBoard.takeTurn(player)
 		#print board
 		theBoard.printBoard()
-		#check for win
+		#check for win, return true if 4 in a row
 		gameHasBeenWon = theBoard.checkForWin()
 		#if win, break
 		if gameHasBeenWon:

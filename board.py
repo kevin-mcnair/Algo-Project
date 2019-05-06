@@ -46,8 +46,9 @@ class Board:
 	def gameIsOver(self):
 		self.gameOver = True
 
-	#returns boolean, false if no 4 pieces found 
+	#returns boolean, false if no 4 pieces found, true if theres a win 
 	def checkForWin(self):
+
 		return self.gameOver
 
 	def takeTurn(self, thePlayer):
