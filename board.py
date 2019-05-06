@@ -84,18 +84,18 @@ class Board:
 					return False
 		return True
 
-	def checkHorizontal(self):
+	def checkHorizontal(self, x, y):
 		return False
 	
-	def checkVertical(self):
+	def checkVertical(self, x, y):
 		return False
 	
-	def checkDiagonal(self):
+	def checkDiagonal(self, x, y):
 		return False
 
 	def doesSquareContainWinner(self, x, y):
 		print("Searching... (" + str(x) + ',' + str(y) + ")")
-		if(self.checkHorizontal() or self.checkVertical() or self.checkDiagonal()):
+		if(self.checkHorizontal(x, y) or self.checkVertical(x, y) or self.checkDiagonal(x, y)):
 			return True
 		else:
 			return False 
