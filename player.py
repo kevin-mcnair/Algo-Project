@@ -74,7 +74,7 @@ class Player:
 			# 	for j in i:
 			# 		print(j)
 
-			return self.computerLogic.chosenColumn()
+			return self.computerLogic.chosenColumn(board)+1
 
 			
 
