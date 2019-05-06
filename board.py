@@ -137,7 +137,18 @@ class Board:
 					return False
 		return True
 
+	def doesSquareContainWinner(self, x, y):
+			print("Searching... (" + x + ',' + y + ")")
+			return True 
+
 	#returns boolean, TRUE if 4 of same piece are found 
 	def checkForWin(self):
-
-		return self.gameOver
+		for row in range(len(self.grid), 0, -1):
+			for col in range(len(self.grid[row-1])):
+				if(str(self.grid[row-1][col]) == ' '):
+					continue
+				else:
+					self.doesSquareContainWinner(row-1, col)
+		return False
+	
+		
