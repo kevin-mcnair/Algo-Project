@@ -147,7 +147,7 @@ class Board:
 					if(self.doesSquareContainWinner(row, col, self.grid[row][col].character)):
 						return True
 					continue
-<<<<<<< HEAD
+
 		return False
 	
 	def checkVertical(self,x,y):
@@ -170,6 +170,5 @@ class Board:
 			if(count >= 4):
 				return True
 
-=======
->>>>>>> e58098ab90b57f132e2b2302c170375078806717
+
 		return False
