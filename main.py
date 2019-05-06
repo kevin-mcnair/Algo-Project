@@ -68,7 +68,8 @@ if __name__ == '__main__':
 		#print board again
 		theBoard.printBoard()
 		
-		
+		print(theBoard.checkForWin())
+
 		#check for win
 		gameHasBeenWon = theBoard.checkForWin()
 		#if win, break
