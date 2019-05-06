@@ -16,9 +16,9 @@ class Player:
 	# Key for direction:
 	#
 	#	1	2	3
-	#	4	(P)	5
+	#	4  (P)	5
 	#	6	7	8
-	#
+	#	
 	# Where (P) is the piece 
 		
 	#	if(direction==1): 
@@ -65,7 +65,9 @@ class Player:
 				#could be a 'heuristic' to always have the computer drop in the center column (4) if they have the first move
 				#According to internet, the only way to win a perfect game is to play that column first... soo optimal?
 				return 4
+
 			return random.choice([1,2,3,4,5,6,7])
+			
 
 			#**************************************************************
 			#IMPORTANT

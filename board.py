@@ -76,4 +76,5 @@ class Board:
 		success = False
 		while success == False:
 			chosenCol = thePlayer.takeTurn()
+			print(chosenCol)
 			success = self.addPiece(chosenCol, thePlayer)
