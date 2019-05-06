@@ -27,12 +27,6 @@ class Player:
 				return 4
 			
 
-
-			return random.choice([1,2,3,4,5,6,7])
-			# for i in board.grid:
-			# 	for j in i:
-			# 		print(j)
-
 			return self.computerLogic.chosenColumn(board)+1
 
 
@@ -62,10 +56,15 @@ class Player:
 		else:
 			#get input from user
 				while True:
-					n = int(input("enter a number between 1 and 7: "))
-					if 1 <= n <= 7:
-						break
-					print('try again')
-			
+					try:
+						n = int(input("enter a number between 1 and 7: "))
+						if 1 <= n <= 7:
+							break
+						print('try again')
+					except KeyboardInterrupt:
+						raise
+					except:
+						print("Please enter a valid number")
+						continue
 				self.turnCount = self.turnCount + 1
 				return n

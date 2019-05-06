@@ -112,9 +112,30 @@ class Board:
 	
 	def checkDiagonal(self, x, y):
 		#print("Searching Diagonal... (" + str(x) + ',' + str(y) + ")")
-		
 
 		return False
+
+		#Checks diagonal in the direction of / (left to right diagonal, starting at bottom)
+	def checkLRDiagonal(self,x,y,char):
+		count = 0
+
+		try:
+			if self.grid[x][y].character == char:
+				count = count + 1
+				if str(self.grid[x+1][y+1]) == char:
+					count = count + 1
+					if str(self.grid[x+2][y+2]) == char:
+						count = count + 1
+						if str(self.grid[x+3][y+3]) == char:
+							count = count + 1
+							return True
+			else:
+				print(count)
+				return False
+		except IndexError:
+			return False
+
+
 
 	def checkVertical(self,x,y):
 		token = self.grid[x][y]
@@ -134,7 +155,7 @@ class Board:
 
 	def doesSquareContainWinner(self, x, y, char):
 		#print("Searching... (" + str(x) + ',' + str(y) + ")" + char)
-		if(self.checkHorizontal(x, y, char) or self.checkVertical(x, y) or self.checkDiagonal(x, y)):
+		if(self.checkHorizontal(x, y, char) or self.checkVertical(x, y) or self.checkLRDiagonal(x, y,char)):
 			return True
 		else:
 			return False 
