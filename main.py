@@ -29,10 +29,13 @@ if __name__ == '__main__':
 		print("Computer goes first...")
 		print("")
 		time.sleep(.5)
+
+		start = time.time()
 		theBoard.takeTurn(computer)
+		end = time.time()
 		#print board
 		theBoard.printBoard()
-
+		print("Computer took "+ str(round(((end-start) - 0.5),4)) + " s")
 	else:
 		print("")
 		print("You go first...")
@@ -41,6 +44,8 @@ if __name__ == '__main__':
 
 		#print board
 		theBoard.printBoard()
+
+
 
 	#start while loop with condition gameOver
 	while(theBoard.gameOver == False):
@@ -61,12 +66,14 @@ if __name__ == '__main__':
 
 		#check for tie
 		tieCheck = theBoard.checkForTie()
-		
+		start = time.time()
 		#otherwise, computer takes turn
 		theBoard.takeTurn(computer)
+		end = time.time()
 		#print board again
 		theBoard.printBoard()
-		
+		print("Computer took "+str(round(((end-start)-0.5),4))+" s")
+
 		#check for win
 		gameHasBeenWon = theBoard.checkForWin()
 		#if win, break
