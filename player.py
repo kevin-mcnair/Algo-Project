@@ -1,9 +1,10 @@
 import time
 import random
 import board
+import Connect4AI
 
 class Player:
-	board = board.Board()
+	computerLogic = Connect4AI.AI()
 	player = ""
 	turnCount = 0 
 
@@ -58,7 +59,6 @@ class Player:
 		if self.isComputer:
 			print("Computer's turn...")
 			time.sleep(0.5)
-			print(len(self.board.grid))
 			#Theoretically, if the Computer is taking the first turn, it could be random.
 			
 			if(self.turnCount == 0 and board.isBoardEmpty()):
@@ -68,9 +68,17 @@ class Player:
 				#According to internet, the only way to win a perfect game is to play that column first... soo optimal?
 				return 4
 
+<<<<<<< HEAD
 			
 
 			return random.choice([1,2,3,4,5,6,7])
+=======
+			for i in board.grid:
+				for j in i:
+					print(j)
+
+			return self.computerLogic.chosenColumn()
+>>>>>>> 2982110ea0fc757fbc9b33ed670b3b4169c0415f
 
 			
 

@@ -61,6 +61,7 @@ class Board:
 		else:
 			print("Game Over.")
 
+<<<<<<< HEAD
 	#returns boolean, TRUE if 4 of same piece are found 
 	def checkForWin(self):
 
@@ -108,6 +109,8 @@ class Board:
 	# 	return False
 	# @KEVIN THIS IS THE STUFF I WAS WORKING ON	
 
+=======
+>>>>>>> 2982110ea0fc757fbc9b33ed670b3b4169c0415f
 	def checkForTie(self):
 		fullColumns = 0
 
@@ -135,3 +138,8 @@ class Board:
 				else:
 					return False
 		return True
+
+	#returns boolean, TRUE if 4 of same piece are found 
+	def checkForWin(self):
+
+		return self.gameOver
