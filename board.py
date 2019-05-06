@@ -56,7 +56,7 @@ class Board:
 		else:
 			print("Game Over.")
 
-	#returns boolean, false if no 4 pieces found 
+	#returns boolean, TRUE if 4 of same piece are found 
 	def checkForWin(self):
 
 		return self.gameOver

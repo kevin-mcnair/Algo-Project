@@ -57,13 +57,25 @@ class Player:
 	def takeTurn(self, board):
 		if self.isComputer:
 			print("Computer's turn...")
-			#time.sleep(1.5)
-		
+			time.sleep(0.5)
+			print(len(self.board.grid))
 			#Theoretically, if the Computer is taking the first turn, it could be random.
-			if(self.turnCount == 0 and len(self.board.grid) == 0 ):
+			
+			def isBoardEmpty():
+	
+				if self.turnCount == 0:
+					for row in range(len(self.board.grid), 0, -1):
+						for col in range(len(self.board.grid[row-1])):
+							if(str(board.grid[row-1][col]) == ' '):
+								continue
+							else:
+								return False
+
+				return True
+	
+			if(self.turnCount == 0 and isBoardEmpty):
 				self.turnCount = self.turnCount + 1
 
-			
 				#could be a 'heuristic' to always have the computer drop in the center column (4) if they have the first move
 				#According to internet, the only way to win a perfect game is to play that column first... soo optimal?
 				return 4
