@@ -166,6 +166,7 @@ class Board:
 	def doesSquareContainWinner(self, x, y, char):
 		#print("Searching... (" + str(x) + ',' + str(y) + ")" + char)
 		if(self.checkHorizontal(x, y, char) or self.checkVertical(x, y) or self.checkLRDiagonal(x, y, char)  or self.checkRLDiagonal(x, y, char)):
+
 			return True
 		else:
 			return False 
