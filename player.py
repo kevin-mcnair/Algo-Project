@@ -52,7 +52,7 @@ class Player:
 	# 	else:
 	# 		return False
 
-	def takeTurn(self):
+	def takeTurn(self, board):
 		if self.isComputer:
 			print("Computer's turn...")
 			#time.sleep(1.5)
@@ -66,7 +66,11 @@ class Player:
 				#According to internet, the only way to win a perfect game is to play that column first... soo optimal?
 				return 4
 
+			for i in board.grid:
+				for j in i:
+					print(j)
 			return random.choice([1,2,3,4,5,6,7])
+
 			
 
 			#**************************************************************
