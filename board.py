@@ -134,9 +134,7 @@ class Board:
 		
 
 	def checkRLDiagonal(self, x, y, char):
-		#print("Searching Diagonal... (" + str(x) + ',' + str(y) + ")")
 		longestLRDiag = 0
-		#print("Searching Horizontal... (" + str(x) + ',' + str(y) + ")")
 		try:
 			if self.grid[x][y].character == char:
 				longestLRDiag = longestLRDiag + 1
@@ -170,7 +168,6 @@ class Board:
 		return False
 
 	def doesSquareContainWinner(self, x, y, char):
-		#print("Searching... (" + str(x) + ',' + str(y) + ")" + char)
 		if(self.checkHorizontal(x, y, char) or self.checkVertical(x, y) or self.checkLRDiagonal(x, y, char)  or self.checkRLDiagonal(x, y, char)):
 
 			return True
