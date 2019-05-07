@@ -19,7 +19,7 @@ class Player:
 			time.sleep(0.5)
 			#Theoretically, if the Computer is taking the first turn, it could be random.
 			
-			if(self.turnCount == 0 and board.isBoardEmpty()):
+			if(self.turnCount == 0 and board.isBoardEmpty() or str(board.grid[0][3]) == ' '):
 				self.turnCount = self.turnCount + 1
 
 				#could be a 'heuristic' to always have the computer drop in the center column (4) if they have the first move
