@@ -74,11 +74,3 @@ if __name__ == '__main__':
 		if gameHasBeenWon or tieCheck:
 			theBoard.gameIsOver(0)
 			break
-
-		#**************************************************************
-		#IMPORTANT
-		#as of right now, the game doesn't end
- 		#Board's checkForWin method will have to be altered to actually check for a win
-		#this will need to be done by checking for any 4 adjacent pieces on the board
-		#***************************************************************
-		

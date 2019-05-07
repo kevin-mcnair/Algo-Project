@@ -27,9 +27,9 @@ class AI:
             
         #this is a simple blocking algorithm
         totalOs = 0
-        for col in range(0, 5):
+        for col in range(0, 6):
             totalOs = 0
-            for row in range(0, 6):
+            for row in range(0, 5):
                 if theBoard.grid[row][col] == ' ':
                     continue
                 if theBoard.grid[row][col].character == "O":

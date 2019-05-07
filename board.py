@@ -95,7 +95,7 @@ class Board:
 		longestHor = 0
 		#print("Searching Horizontal... (" + str(x) + ',' + str(y) + ")")
 		try:
-			if self.grid[x][y].character == char:
+			if str(self.grid[x][y]) == char:
 				longestHor = longestHor + 1
 				if str(self.grid[x][y+1]) == char:
 					longestHor = longestHor + 1
