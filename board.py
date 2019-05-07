@@ -113,7 +113,6 @@ class Board:
 		#Checks diagonal in the direction of / (left to right diagonal, starting at bottom)
 	def checkLRDiagonal(self,x,y,char):
 		count = 0
-
 		try:
 			if self.grid[x][y].character == char:
 				count = count + 1
@@ -126,6 +125,10 @@ class Board:
 							return True
 			else:
 				print(count)
+				return False
+				
+		except IndexError:
+			return False
 
 	def checkRLDiagonal(self, x, y, char):
 		#print("Searching Diagonal... (" + str(x) + ',' + str(y) + ")")
