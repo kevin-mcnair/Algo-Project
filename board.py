@@ -110,9 +110,29 @@ class Board:
 		except IndexError:
 			return False
 	
-	def checkDiagonal(self, x, y):
+	def checkLRDiagonal(self, x, y):
 		#print("Searching Diagonal... (" + str(x) + ',' + str(y) + ")")
 		return False
+
+	def checkRLDiagonal(self, x, y, char):
+		#print("Searching Diagonal... (" + str(x) + ',' + str(y) + ")")
+		longestLRDiag = 0
+		#print("Searching Horizontal... (" + str(x) + ',' + str(y) + ")")
+		try:
+			if self.grid[x][y].character == char:
+				longestLRDiag = longestLRDiag + 1
+				if str(self.grid[x-1][y+1]) == char:
+					longestLRDiag = longestLRDiag + 1
+					if str(self.grid[x-2][y+2]) == char:
+						longestLRDiag = longestLRDiag + 1
+						if str(self.grid[x-3][y+3]) == char:
+							longestLRDiag = longestLRDiag + 1
+							return True
+			else:
+				print(longestLRDiag)
+				return False
+		except IndexError:
+			return False
 
 	def checkVertical(self,x,y):
 		token = self.grid[x][y]
@@ -132,7 +152,7 @@ class Board:
 
 	def doesSquareContainWinner(self, x, y, char):
 		#print("Searching... (" + str(x) + ',' + str(y) + ")" + char)
-		if(self.checkHorizontal(x, y, char) or self.checkVertical(x, y) or self.checkDiagonal(x, y)):
+		if(self.checkHorizontal(x, y, char) or self.checkVertical(x, y) or self.checkLRDiagonal(x, y)  or self.checkRLDiagonal(x, y, char)):
 			return True
 		else:
 			return False 
