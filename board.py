@@ -125,10 +125,7 @@ class Board:
 							return True
 			else:
 				print(count)
-				return False
-				
-		except IndexError:
-			return False
+		
 
 	def checkRLDiagonal(self, x, y, char):
 		#print("Searching Diagonal... (" + str(x) + ',' + str(y) + ")")
